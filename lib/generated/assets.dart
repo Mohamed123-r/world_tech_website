@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String fontsFingerPaintRegular = 'assets/fonts/FingerPaint-Regular.ttf';
   static const String fontsTajawalBlack = 'assets/fonts/Tajawal-Black.ttf';
   static const String fontsTajawalBold = 'assets/fonts/Tajawal-Bold.ttf';
   static const String fontsTajawalExtraBold = 'assets/fonts/Tajawal-ExtraBold.ttf';
@@ -9,6 +10,27 @@ class Assets {
   static const String fontsTajawalLight = 'assets/fonts/Tajawal-Light.ttf';
   static const String fontsTajawalMedium = 'assets/fonts/Tajawal-Medium.ttf';
   static const String fontsTajawalRegular = 'assets/fonts/Tajawal-Regular.ttf';
+  static const String imagesArrowsClockwise = 'assets/images/ArrowsClockwise.svg';
+  static const String imagesBackgroundImageTest = 'assets/images/backgroundImageTest.png';
+  static const String imagesFacebook = 'assets/images/facebook.png';
+  static const String imagesHeadset = 'assets/images/Headset.svg';
+  static const String imagesHeroSectionBannerTest = 'assets/images/HeroSectionBannerTest.png';
+  static const String imagesImageTest = 'assets/images/imageTest.png';
+  static const String imagesInstgram = 'assets/images/instgram.png';
+  static const String imagesLock = 'assets/images/Lock.svg';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesProgectsTitleimage = 'assets/images/progectsTitleimage.png';
+  static const String imagesProgetTest = 'assets/images/progetTest.png';
+  static const String imagesShield = 'assets/images/Shield.svg';
+  static const String imagesTeamImage1 = 'assets/images/teamImage1.png';
+  static const String imagesTeamItem2 = 'assets/images/teamItem2.png';
+  static const String imagesTeamItem3 = 'assets/images/teamItem3.png';
+  static const String imagesTeamItem4 = 'assets/images/teamItem4.png';
+  static const String imagesTeamItem5 = 'assets/images/teamItem5.png';
+  static const String imagesTeamLeaderBackround = 'assets/images/teamLeaderBackround.png';
+  static const String imagesUpBanner1 = 'assets/images/UpBanner1.png';
+  static const String imagesUpBanner2 = 'assets/images/UpBanner2.png';
+  static const String imagesUpBannerTest = 'assets/images/UpBannerTest.png';
+  static const String imagesWhatsapp = 'assets/images/whatsapp.png';
 
 }
