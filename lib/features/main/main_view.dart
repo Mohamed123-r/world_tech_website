@@ -6,12 +6,6 @@ import '../../core/utils/app_colors.dart';
 import '../../core/widgets/custom_logo.dart';
 import '../home/home_view.dart';
 
-// تعريف الثوابت لعناصر القائمة
-const String home = "الصفحة الرئيسية";
-const String services = "خدماتنا";
-const String portfolio = "أعمالنا";
-const String team = "فريق العمل";
-
 class MainView extends StatefulWidget {
   const MainView({super.key});
 
@@ -20,10 +14,36 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  String activeItem = home;
+  String activeItem = "الصفحة الرئيسية";
 
-  final List<String> navItems = [home, services, portfolio, team];
+  // قائمة العناصر مع رقم القسم المقابل
+  final List<Map<String, dynamic>> navItems = [
+    {'title': 'الصفحة الرئيسية', 'index': 0},
+    {'title': 'الخدمات', 'index': 1},
+    {'title': 'المشاريع', 'index': 2},
+    {'title': 'من نحن', 'index': 3},
+    {'title': 'اتصل بنا', 'index': 4},
+  ];
 
+  int currentIndex = 0; // للتحكم في IndexedStack index
+  int homeScrollIndex = 0; // لتمرير رقم القسم لـ HomeView
+
+  void onNavItemTap(int tapIndex) {
+    if (tapIndex <= 4) {
+      // جميع الأقسام من 0 إلى 3 ضمن HomeView
+      setState(() {
+        activeItem = navItems[tapIndex]['title'];
+        currentIndex = 0; // عرض HomeView في IndexedStack
+        homeScrollIndex = tapIndex; // رقم القسم للتمرير
+      });
+    } else {
+      // صفحة منفصلة (مثلا اتصل بنا)
+      setState(() {
+        activeItem = navItems[tapIndex]['title'];
+        currentIndex = tapIndex; // عرض الصفحة المطلوبة مباشرة
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,31 +63,21 @@ class _MainViewState extends State<MainView> {
                 ),
               ),
               child: IndexedStack(
-                index: navItems.indexOf(activeItem),
-                children: const [
-                  HomeView(),
-                  Center(
-                    child: Text(
-                      "صفحة الخدمات",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "صفحة الأعمال",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "صفحة الفريق",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                index: currentIndex,
+                children: [
+                  HomeView(
+                    scrollToSectionIndex: homeScrollIndex,
+                    onSectionChanged: (int index) {
+                      setState(() {
+                        homeScrollIndex == index
+                            ? activeItem = "الصفحة الرئيسية"
+                            : activeItem = navItems[index]['title'];
+                      });
+                    },
                   ),
                 ],
               ),
             ),
-
             Padding(
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height / 40,
@@ -87,13 +97,13 @@ class _MainViewState extends State<MainView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children:
-                          navItems.map((item) {
-                            final bool isActive = item == activeItem;
+                          navItems.asMap().entries.map((entry) {
+                            int idx = entry.key;
+                            String title = entry.value['title'];
+                            final bool isActive = title == activeItem;
                             return InkWell(
                               onTap: () {
-                                setState(() {
-                                  activeItem = item;
-                                });
+                                onNavItemTap(idx);
                               },
                               child: AnimatedContainer(
                                 duration: const Duration(milliseconds: 300),
@@ -105,17 +115,19 @@ class _MainViewState extends State<MainView> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Spacer(),
+                                    const Spacer(),
                                     SizedBox(height: 4),
                                     Text(
-                                      item,
-                                      style: AppTextStyles.upBar(
+                                      title,
+                                      style: AppTextStyles.style14w500(
                                         context,
                                       ).copyWith(color: AppColors.white),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     AnimatedContainer(
-                                      duration: const Duration(milliseconds: 300),
+                                      duration: const Duration(
+                                        milliseconds: 300,
+                                      ),
                                       height: 4,
                                       width:
                                           isActive

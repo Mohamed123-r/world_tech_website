@@ -2,96 +2,83 @@ import 'package:flutter/material.dart';
 import 'package:world_tech_website/core/utils/app_colors.dart';
 
 abstract class AppTextStyles {
-  static TextStyle header1(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 40),
-      fontWeight: FontWeight.bold,
-      color: AppColors.blue,
-    );
-  }
-  static TextStyle header2(BuildContext context) {
-    return TextStyle(
-        fontSize: getResponsiveScaleFactor(context, fontSize: 40),
-        fontWeight: FontWeight.bold,
-        color: AppColors.black,
-    );
-  }
-  static TextStyle upBar(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
-      fontWeight: FontWeight.w500,
-      color: AppColors.black,
-    );
-  }
-  static TextStyle logoText(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 24),
-      fontWeight: FontWeight.bold,
-      color: AppColors.black,
-    );
-  }
-  static TextStyle buttonText(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 24),
-      fontWeight: FontWeight.w500,
-      color: AppColors.black,
-    );
-  }
-  static TextStyle bodyText1(BuildContext context) {
+  static TextStyle style40w500(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 40),
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     );
   }
-  static TextStyle bodyHeader1(BuildContext context) {
+
+  static TextStyle style32w500(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 32),
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     );
   }
-  static TextStyle bodyDescription1(BuildContext context) {
+
+  static TextStyle style26w500(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 26),
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    );
+  }
+
+  static TextStyle style24w500(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 24),
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     );
   }
-  static TextStyle bodyDescription2(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
-      fontWeight: FontWeight.w500,
-      color: AppColors.black,
-    );
-  }  static TextStyle bodyHeader2(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 26),
-      fontWeight: FontWeight.w500,
-      color: AppColors.black,
-    );
-  }  static TextStyle bodyDescription3(BuildContext context) {
+
+  static TextStyle style22w500(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 22),
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     );
   }
-  static TextStyle footerText(BuildContext context) {
+
+  static TextStyle style20w500(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 18),
+      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
       fontWeight: FontWeight.w500,
       color: AppColors.black,
     );
   }
 
+  static TextStyle style20w700(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
+      fontWeight: FontWeight.w700,
+      color: AppColors.black,
+    );
+  }
 
+  static TextStyle style16w500(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    );
+  }
 
-
+  static TextStyle style14w500(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    );
+  }
 }
 
-double getResponsiveScaleFactor(BuildContext context,
-    {required double fontSize}) {
+double getResponsiveScaleFactor(
+  BuildContext context, {
+  required double fontSize,
+}) {
   double scaleFactor = getScaleFactor(context);
   double responsiveFontSize = fontSize * scaleFactor;
 
