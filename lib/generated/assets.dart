@@ -12,6 +12,7 @@ class Assets {
   static const String fontsTajawalRegular = 'assets/fonts/Tajawal-Regular.ttf';
   static const String imagesArrowsClockwise = 'assets/images/ArrowsClockwise.svg';
   static const String imagesBackgroundImageTest = 'assets/images/backgroundImageTest.png';
+  static const String imagesContactUs = 'assets/images/contactUs.png';
   static const String imagesFacebook = 'assets/images/facebook.png';
   static const String imagesHeadset = 'assets/images/Headset.svg';
   static const String imagesHeroSectionBannerTest = 'assets/images/HeroSectionBannerTest.png';
@@ -32,5 +33,6 @@ class Assets {
   static const String imagesUpBanner2 = 'assets/images/UpBanner2.png';
   static const String imagesUpBannerTest = 'assets/images/UpBannerTest.png';
   static const String imagesWhatsapp = 'assets/images/whatsapp.png';
+  static const String imagesWhatsappLogo = 'assets/images/WhatsappLogo.svg';
 
 }
