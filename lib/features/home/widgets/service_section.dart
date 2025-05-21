@@ -56,7 +56,21 @@ class ServiceSection extends StatelessWidget {
                       ),
                       SizedBox(height: 48),
                       Text(
-                        "في World Tech، نصنع مواقع ويب احترافية وجذابة تُعبر عن هوية علامتك التجارية باحترافية. سواء كنت بحاجة إلى موقع شخصي، متجر إلكتروني، أو منصة متكاملة، نضمن لك تصميمًا سلسًا، تجربة مستخدم متميزة، وأداءً عالي السرعة. نواكب أحدث التقنيات لنمنحك موقعًا يتفوق على المنافسين ويحقق أهدافك بفعالية.",
+                        "في World Tech، نصنع مواقع ويب احترافية وجذابة تُعبر عن هوية علامتك التجارية باحترافية. سواء كنت بحاجة إلى موقع شخصي، ",
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.style20w500(context),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        " متجر إلكتروني، أو منصة متكاملة، نضمن لك تصميمًا سلسًا، تجربة مستخدم متميزة، وأداءً عالي السرعة. ",
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.style20w500(context),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        " نواكب أحدث التقنيات لنمنحك موقعًا يتفوق على المنافسين ويحقق أهدافك بفعالية.",
                         maxLines: 7,
                         overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.style20w500(context),
@@ -94,7 +108,15 @@ class ServiceSection extends StatelessWidget {
                       ),
                       SizedBox(height: 48),
                       Text(
-                        "نطور تطبيقات هاتف ذكية ومبتكرة تلبي احتياجات المستخدمين على نظامي Android و iOS.من التطبيقات التجارية والتعليمية إلى التطبيقات الترفيهية والخدمية، نضمن واجهات سهلة الاستخدام، أداءً سريعًا، وأعلى معايير الأمان. فريقنا يحول أفكارك إلى تطبيقات تفاعلية تزيد من ولاء العملاء وتنمو مع أعمالك.",
+                        "نطور تطبيقات هاتف ذكية ومبتكرة تلبي احتياجات المستخدمين على نظامي Android و iOS.",
+
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.style20w500(context),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        "من التطبيقات التجارية والتعليمية إلى التطبيقات الترفيهية والخدمية، نضمن واجهات سهلة الاستخدام، أداءً سريعًا، وأعلى معايير الأمان. فريقنا يحول أفكارك إلى تطبيقات تفاعلية تزيد من ولاء العملاء وتنمو مع أعمالك.",
 
                         maxLines: 7,
                         overflow: TextOverflow.ellipsis,
@@ -137,7 +159,14 @@ class ServiceSection extends StatelessWidget {
                       ),
                       SizedBox(height: 48),
                       Text(
-                        "نقدم حلول برمجية متكاملة لأنظمة الحاسوب (Windows, macOS, Linux) مصممة خصيصًا لتناسب متطلبات عملك، سواء كانت تطبيقات إدارية، برامج محاسبة، أو أدوات إنتاجية متقدمة. نركز على الأداء العالي، واجهات سهلة التخصيص، والتكامل مع الأنظمة الأخرى لضمان كفاءة تشغيلية تواكب تطور شركتك. ",
+                        "نقدم حلول برمجية متكاملة لأنظمة الحاسوب (Windows, macOS, Linux) مصممة خصيصًا لتناسب متطلبات عملك، سواء كانت تطبيقات إدارية،",
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyles.style20w500(context),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        " برامج محاسبة، أو أدوات إنتاجية متقدمة. نركز على الأداء العالي، واجهات سهلة التخصيص، والتكامل مع الأنظمة الأخرى لضمان كفاءة تشغيلية تواكب تطور شركتك. ",
                         maxLines: 7,
                         overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.style20w500(context),
@@ -153,4 +182,3 @@ class ServiceSection extends StatelessWidget {
     );
   }
 }
-
