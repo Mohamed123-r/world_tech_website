@@ -13,6 +13,7 @@ class Assets {
   static const String imagesArrowsClockwise = 'assets/images/ArrowsClockwise.svg';
   static const String imagesBackgroundImageTest = 'assets/images/backgroundImageTest.png';
   static const String imagesContactUs = 'assets/images/contactUs.png';
+  static const String imagesDesktop = 'assets/images/desktop.png';
   static const String imagesFacebook = 'assets/images/facebook.png';
   static const String imagesHeadset = 'assets/images/Headset.svg';
   static const String imagesHeroSectionBannerTest = 'assets/images/HeroSectionBannerTest.png';
@@ -20,6 +21,8 @@ class Assets {
   static const String imagesInstgram = 'assets/images/instgram.png';
   static const String imagesLock = 'assets/images/Lock.svg';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesMobilTest = 'assets/images/mobilTest.png';
+  static const String imagesMobile = 'assets/images/Mobile.png';
   static const String imagesProgectsTitleimage = 'assets/images/progectsTitleimage.png';
   static const String imagesProgetTest = 'assets/images/progetTest.png';
   static const String imagesShield = 'assets/images/Shield.svg';
@@ -32,6 +35,8 @@ class Assets {
   static const String imagesUpBanner1 = 'assets/images/UpBanner1.png';
   static const String imagesUpBanner2 = 'assets/images/UpBanner2.png';
   static const String imagesUpBannerTest = 'assets/images/UpBannerTest.png';
+  static const String imagesWeb = 'assets/images/web.png';
+  static const String imagesWebTest = 'assets/images/webTest.png';
   static const String imagesWhatsapp = 'assets/images/whatsapp.png';
   static const String imagesWhatsappLogo = 'assets/images/WhatsappLogo.svg';
 

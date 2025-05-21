@@ -5,16 +5,20 @@ import 'package:world_tech_website/features/home/widgets/hero_section.dart';
 import 'package:world_tech_website/features/home/widgets/projects_section.dart';
 import 'package:world_tech_website/features/home/widgets/service_section.dart';
 import 'package:world_tech_website/features/home/widgets/team_section.dart';
+import 'package:world_tech_website/features/projects/project_view.dart';
 import '../../generated/assets.dart';
 
 class HomeView extends StatefulWidget {
   final int scrollToSectionIndex;
+  bool projectView;
   final ValueChanged<int>? onSectionChanged;
-
-  const HomeView({
+  final ValueChanged<bool>? onProjectChanged;
+  HomeView({
     super.key,
     this.scrollToSectionIndex = 0,
     this.onSectionChanged,
+    this.projectView = false, this.onProjectChanged,
+
   });
 
   @override
@@ -35,6 +39,8 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
+
+
   void _onScroll() {
     for (int i = 0; i < sectionKeys.length; i++) {
       final context = sectionKeys[i].currentContext;
@@ -45,6 +51,7 @@ class _HomeViewState extends State<HomeView> {
         if (position <= 100) {
           widget.onSectionChanged?.call(i);
         }
+
         print(i);
       }
     }
@@ -84,44 +91,63 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Container(
-          key: sectionKeys[0],
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 260.0),
-                    child: Image.asset(
-                      Assets.imagesBackgroundImageTest,
-                      width: MediaQuery.of(context).size.width,
-                      height: 1200,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Column(
+      body:
+          widget.projectView
+              ? ProjectView()
+              : SingleChildScrollView(
+                controller: _scrollController,
+                child: Container(
+                  key: sectionKeys[0],
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      HeroSection(),
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 260.0),
+                            child: Image.asset(
+                              Assets.imagesBackgroundImageTest,
+                              width: MediaQuery.of(context).size.width,
+                              height: 1200,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              HeroSection(),
 
-                      ServiceSection(sectionKeys: sectionKeys),
+                              ServiceSection(sectionKeys: sectionKeys),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        key: sectionKeys[2],
+                        child: ProjectsSection(
+                          projectView: () {
+                            setState(() {
+                              widget.projectView = true;
+                              widget.onProjectChanged?.call(true);
+                            });
+                          },
+                        ),
+                      ),
+                      Container(
+                        key: sectionKeys[3],
+                        child: SizedBox(height: 56),
+                      ),
+                      TeamSection(),
+                      Container(
+                        key: sectionKeys[4],
+                        child: SizedBox(height: 150),
+                      ),
+                      ContactSection(),
+                      SizedBox(height: 112),
+                      FooterSection(),
                     ],
                   ),
-                ],
+                ),
               ),
-              Container(key: sectionKeys[2], child: ProjectsSection()),
-              Container(key: sectionKeys[3], child: SizedBox(height: 56)),
-              TeamSection(),
-              Container(key: sectionKeys[4], child: SizedBox(height: 150)),
-              ContactSection(),
-              SizedBox(height: 112),
-              FooterSection(),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

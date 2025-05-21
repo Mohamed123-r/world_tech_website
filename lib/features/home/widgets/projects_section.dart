@@ -1,14 +1,16 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:world_tech_website/features/projects/project_view.dart';
 
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_text_style.dart';
 import '../../../generated/assets.dart';
 
 class ProjectsSection extends StatelessWidget {
-  const ProjectsSection({super.key});
+  const ProjectsSection({super.key, required this.projectView});
 
+ final VoidCallback projectView ;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,61 +47,61 @@ class ProjectsSection extends StatelessWidget {
 
               itemBuilder:
                   (context, index) => Padding(
-                padding: EdgeInsets.only(
-                  right: index == 0 ? 32 : 0,
-                  left: index == 4 ? 32 : 0,
-                ),
-                child: Container(
-                  height: 380,
-                  width: 1000,
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteGrey,
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(width: 44),
-                      Image.asset(
-                        Assets.imagesProgetTest,
-                        width: 264,
-                        height: 380,
+                    padding: EdgeInsets.only(
+                      right: index == 0 ? 32 : 0,
+                      left: index == 4 ? 32 : 0,
+                    ),
+                    child: Container(
+                      height: 380,
+                      width: 1000,
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteGrey,
+                        borderRadius: BorderRadius.circular(32),
                       ),
-                      SizedBox(width: 82),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            top: 32.0,
-                            bottom: 60,
+                      child: Row(
+                        children: [
+                          SizedBox(width: 44),
+                          Image.asset(
+                            Assets.imagesProgetTest,
+                            width: 264,
+                            height: 380,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                          SizedBox(width: 82),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                top: 32.0,
+                                bottom: 60,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
 
-                            children: [
-                              Text(
-                                "Gas Home App",
-                                style: AppTextStyles.style40w500(
-                                  context,
-                                ).copyWith(
-                                  fontFamily: "FingerPaint",
-                                  color: AppColors.darkerGrey,
-                                ),
+                                children: [
+                                  Text(
+                                    "Gas Home App",
+                                    style: AppTextStyles.style40w500(
+                                      context,
+                                    ).copyWith(
+                                      fontFamily: "FingerPaint",
+                                      color: AppColors.darkerGrey,
+                                    ),
+                                  ),
+                                  SizedBox(height: 48),
+                                  Text(
+                                    "نقدم حلول برمجية متكاملة لأنظمة الحاسوب (Windows, macOS, Linux) مصممة خصيصًا لتناسب متطلبات عملك، سواء كانت تطبيقات إدارية، برامج محاسبة، أو أدوات إنتاجية متقدمة. نركز على الأداء العالي، واجهات سهلة التخصيص، والتكامل مع الأنظمة الأخرى لضمان كفاءة تشغيلية تواكب تطور شركتك.",
+                                    maxLines: 8,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: AppTextStyles.style20w500(context),
+                                  ),
+                                ],
                               ),
-                              SizedBox(height: 48),
-                              Text(
-                                "نقدم حلول برمجية متكاملة لأنظمة الحاسوب (Windows, macOS, Linux) مصممة خصيصًا لتناسب متطلبات عملك، سواء كانت تطبيقات إدارية، برامج محاسبة، أو أدوات إنتاجية متقدمة. نركز على الأداء العالي، واجهات سهلة التخصيص، والتكامل مع الأنظمة الأخرى لضمان كفاءة تشغيلية تواكب تطور شركتك.",
-                                maxLines: 8,
-                                overflow: TextOverflow.ellipsis,
-                                style: AppTextStyles.style20w500(context),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
+                          SizedBox(width: 44),
+                        ],
                       ),
-                      SizedBox(width: 44),
-                    ],
+                    ),
                   ),
-                ),
-              ),
               separatorBuilder: (context, index) => SizedBox(width: 40),
               itemCount: 5,
             ),
@@ -108,7 +110,7 @@ class ProjectsSection extends StatelessWidget {
 
         SizedBox(height: 32),
         MaterialButton(
-          onPressed: () {},
+          onPressed: projectView,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
           ),
@@ -126,4 +128,3 @@ class ProjectsSection extends StatelessWidget {
     );
   }
 }
-

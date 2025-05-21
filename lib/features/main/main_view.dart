@@ -16,7 +16,6 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   String activeItem = "الصفحة الرئيسية";
 
-  // قائمة العناصر مع رقم القسم المقابل
   final List<Map<String, dynamic>> navItems = [
     {'title': 'الصفحة الرئيسية', 'index': 0},
     {'title': 'الخدمات', 'index': 1},
@@ -25,22 +24,21 @@ class _MainViewState extends State<MainView> {
     {'title': 'اتصل بنا', 'index': 4},
   ];
 
-  int currentIndex = 0; // للتحكم في IndexedStack index
-  int homeScrollIndex = 0; // لتمرير رقم القسم لـ HomeView
+  int currentIndex = 0;
+  int homeScrollIndex = 0;
+  bool projectView = false;
 
   void onNavItemTap(int tapIndex) {
     if (tapIndex <= 4) {
-      // جميع الأقسام من 0 إلى 3 ضمن HomeView
       setState(() {
         activeItem = navItems[tapIndex]['title'];
-        currentIndex = 0; // عرض HomeView في IndexedStack
-        homeScrollIndex = tapIndex; // رقم القسم للتمرير
+        currentIndex = 0;
+        homeScrollIndex = tapIndex;
       });
     } else {
-      // صفحة منفصلة (مثلا اتصل بنا)
       setState(() {
         activeItem = navItems[tapIndex]['title'];
-        currentIndex = tapIndex; // عرض الصفحة المطلوبة مباشرة
+        currentIndex = tapIndex;
       });
     }
   }
@@ -67,10 +65,16 @@ class _MainViewState extends State<MainView> {
                 children: [
                   HomeView(
                     scrollToSectionIndex: homeScrollIndex,
+                    projectView: projectView,
+                    onProjectChanged: (bool value) {
+                      setState(() {
+                        projectView = value;
+                      });
+                    },
                     onSectionChanged: (int index) {
                       setState(() {
                         homeScrollIndex == index
-                            ? activeItem = "الصفحة الرئيسية"
+                            ? activeItem = navItems[index]['title']
                             : activeItem = navItems[index]['title'];
                       });
                     },
@@ -103,7 +107,18 @@ class _MainViewState extends State<MainView> {
                             final bool isActive = title == activeItem;
                             return InkWell(
                               onTap: () {
-                                onNavItemTap(idx);
+                                if (projectView) {
+                                  setState(() {
+                                    projectView = false;
+                                  });
+                                  Future.delayed(Duration(seconds: 1)).then((
+                                    _,
+                                  ) {
+                                    onNavItemTap(idx);
+                                  });
+                                } else {
+                                  onNavItemTap(idx);
+                                }
                               },
                               child: AnimatedContainer(
                                 duration: const Duration(milliseconds: 300),
