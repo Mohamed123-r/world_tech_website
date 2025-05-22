@@ -21,6 +21,7 @@ class TeamSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Stack(
                 children: [
@@ -50,7 +51,7 @@ class TeamSection extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+
               Stack(
                 alignment: Alignment.center,
                 children: [

@@ -21,10 +21,13 @@ class _ProjectsSectionState extends State<ProjectsSection> {
   void initState() {
     super.initState();
     _middleIndex = (loopingFactor * projectsCount) ~/ 2;
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final screenWidth = MediaQuery.of(context).size.width;
-      final itemWidth = screenWidth * 0.75 + 40; // العنصر + margin
-      _controller.jumpTo(_middleIndex * itemWidth);
+      final itemWidth = screenWidth * 0.75 + 40; // عرض العنصر + الهوامش
+      final centerOffset = (itemWidth - screenWidth) / 2;
+
+      _controller.jumpTo(_middleIndex * itemWidth - centerOffset);
     });
   }
 

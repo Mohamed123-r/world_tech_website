@@ -111,7 +111,7 @@ class _MainViewState extends State<MainView> {
                                   setState(() {
                                     projectView = false;
                                   });
-                                  Future.delayed(Duration(seconds: 1)).then((
+                                  Future.delayed(Duration(seconds: 2)).then((
                                     _,
                                   ) {
                                     onNavItemTap(idx);
