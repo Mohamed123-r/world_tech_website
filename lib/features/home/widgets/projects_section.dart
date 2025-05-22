@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_text_style.dart';
 import '../../../generated/assets.dart';
+
 class ProjectsSection extends StatefulWidget {
   const ProjectsSection({super.key, required this.projectView});
+
   final VoidCallback projectView;
 
   @override
@@ -42,25 +44,29 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           alignment: Alignment.bottomCenter,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 180.0),
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width / 30,
+              ),
               child: Image.asset(
                 Assets.imagesProgectsTitleimage,
                 width: double.infinity,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 32.0),
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.width / 30,
+              ),
               child: Text(
                 "قصص نجاحنا مع عملائنا\n تصفح اخر أعمالنا ",
                 textAlign: TextAlign.center,
-                style: AppTextStyles.style24w500(context),
+                style: AppTextStyles.style22w500(context),
               ),
             ),
           ],
         ),
         const SizedBox(height: 24),
         SizedBox(
-          height: 380,
+          height: MediaQuery.of(context).size.width / 2.5 ,
           child: ScrollConfiguration(
             behavior: const ScrollBehavior().copyWith(
               dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse},
@@ -71,51 +77,74 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               itemBuilder: (context, index) {
                 final realIndex = index % projectsCount;
                 return Container(
-                  height: 380,
+
                   width: itemWidth,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  margin:  EdgeInsets.symmetric(horizontal:
+                     24
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.whiteGrey,
                     borderRadius: BorderRadius.circular(32),
                   ),
                   child: Row(
                     children: [
-                      const SizedBox(width: 44),
+                       SizedBox(width:  MediaQuery.of(context).size.width / 30),
                       Image.asset(
                         Assets.imagesProgetTest,
-                        width: 264,
-                        height: 380,
+
+                        height: MediaQuery.of(context).size.width / 2.5,
                       ),
-                      const SizedBox(width: 40),
+                       SizedBox(width: MediaQuery.of(context).size.width / 30),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                            top: 32.0,
-                            bottom: 60,
-                            right: 16,
+                          padding:  EdgeInsets.only(
+                            top: MediaQuery.of(context).size.width / 30,
+                            bottom: MediaQuery.of(context).size.width / 20,
+                            right: MediaQuery.of(context).size.width / 40,
+                            left:  MediaQuery.of(context).size.width / 40
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
                                 "Gas Home App",
-                                style: AppTextStyles.style40w500(context).copyWith(
+                                style:
+
+                                MediaQuery.of(context).size.width < 850 ?
+                                AppTextStyles.style26w500(
+                                  context,
+                                ).copyWith(
+                                  fontFamily: "FingerPaint",
+                                  color: AppColors.darkerGrey,
+                                ):
+
+
+                                AppTextStyles.style40w500(
+                                  context,
+                                ).copyWith(
                                   fontFamily: "FingerPaint",
                                   color: AppColors.darkerGrey,
                                 ),
                               ),
-                              const SizedBox(height: 24),
+                               SizedBox(height:
+
+                               MediaQuery.of(context).size.width < 850 ?
+                               8
+                               :
+                               24),
                               Text(
                                 "نقدم حلول برمجية متكاملة لأنظمة الحاسوب (Windows, macOS, Linux) مصممة خصيصًا لتناسب متطلبات عملك، سواء كانت تطبيقات إدارية، برامج محاسبة، أو أدوات إنتاجية متقدمة...",
-                                maxLines: 8,
+                                maxLines:MediaQuery.of(context).size.width < 850 ? 6: 8,
                                 overflow: TextOverflow.ellipsis,
-                                style: AppTextStyles.style20w500(context),
+                                style:MediaQuery.of(context).size.width < 850 ?
+                                AppTextStyles.style16w500(context):
+                                AppTextStyles.style20w500(context),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20),
+
                     ],
                   ),
                 );
@@ -124,18 +153,52 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             ),
           ),
         ),
-        const SizedBox(height: 32),
+         SizedBox(height:
+
+         MediaQuery.of(context).size.width < 850 ?
+         16
+         :
+         32
+         ),
         MaterialButton(
           onPressed: widget.projectView,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(
+
+              MediaQuery.of(context).size.width < 600 ?
+              12 :
+              MediaQuery.of(context).size.width < 1200 ?
+              16 :
+              24
+            ),
           ),
-          height: 72,
-          minWidth: 300,
+          height: MediaQuery.of(context).size.width < 600 ?
+          48 :
+          MediaQuery.of(context).size.width < 1200 ?
+          56 :
+          72,
+          minWidth: MediaQuery.of(context).size.width < 600 ?
+          150 :
+          MediaQuery.of(context).size.width < 1200 ?
+          200 :
+          300
+          ,
           color: AppColors.orange,
           child: Text(
             "عرض جميع المشاريع",
-            style: AppTextStyles.style24w500(context).copyWith(color: AppColors.white),
+            style:
+
+            MediaQuery.of(context).size.width < 600 ?
+            AppTextStyles.style16w500(
+              context,
+            ).copyWith(color: AppColors.white) :
+            MediaQuery.of(context).size.width < 1200 ?
+            AppTextStyles.style22w500(
+              context,
+            ).copyWith(color: AppColors.white) :
+            AppTextStyles.style24w500(
+              context,
+            ).copyWith(color: AppColors.white),
           ),
         ),
       ],

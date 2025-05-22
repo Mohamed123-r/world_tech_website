@@ -13,12 +13,13 @@ class HomeView extends StatefulWidget {
   bool projectView;
   final ValueChanged<int>? onSectionChanged;
   final ValueChanged<bool>? onProjectChanged;
+
   HomeView({
     super.key,
     this.scrollToSectionIndex = 0,
     this.onSectionChanged,
-    this.projectView = false, this.onProjectChanged,
-
+    this.projectView = false,
+    this.onProjectChanged,
   });
 
   @override
@@ -38,8 +39,6 @@ class _HomeViewState extends State<HomeView> {
       _scrollToSection(widget.scrollToSectionIndex);
     });
   }
-
-
 
   void _onScroll() {
     for (int i = 0; i < sectionKeys.length; i++) {
@@ -104,17 +103,34 @@ class _HomeViewState extends State<HomeView> {
                       Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 260.0),
+                            padding:  EdgeInsets.only(top:
+                            MediaQuery.of(context).size.width > 1200
+                                      ? 260
+                                      : MediaQuery.of(context).size.width > 600
+                                          ? 100 : 32
+                            ),
                             child: Image.asset(
                               Assets.imagesBackgroundImageTest,
                               width: MediaQuery.of(context).size.width,
-                              height: 1200,
+                              height:
+                                  MediaQuery.of(context).size.width > 1200
+                                      ? 1200
+                                      : MediaQuery.of(context).size.width > 600
+                                          ? 600 : 400,
                               fit: BoxFit.fill,
                             ),
                           ),
                           Column(
                             children: [
-                              HeroSection(),
+                              Padding(
+                                padding:  EdgeInsets.only(top:
+                                 MediaQuery.of(context).size.width > 1200
+                                      ? 8
+                                      : MediaQuery.of(context).size.width > 600
+                                          ? 32 : 42
+                                ),
+                                child: HeroSection(),
+                              ),
 
                               ServiceSection(sectionKeys: sectionKeys),
                             ],

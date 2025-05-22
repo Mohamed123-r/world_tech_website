@@ -17,6 +17,7 @@ class TeamItem extends StatelessWidget {
   final String imagePath;
   final Color color;
 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,8 +25,8 @@ class TeamItem extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 220,
-            height: 414,
+            width: 200,
+            height: 380,
             decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.circular(600),
@@ -48,7 +49,7 @@ class TeamItem extends StatelessWidget {
                       context,
                     ).copyWith(color: AppColors.white),
                   ),
-                  const SizedBox(height: 42),
+                  const SizedBox(height: 24),
                   Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -56,16 +57,16 @@ class TeamItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(600),
                         child: Image.asset(
                           imagePath,
-                          width: 220,
-                          height: 266,
+                          width: 200,
+                          height: 246,
                           fit: BoxFit.cover,
                         ),
                       ),
                       Positioned(
-                        bottom: -370,
+                        bottom: -350,
                         child: Container(
-                          width: 220,
-                          height: 414,
+                          width: 200,
+                          height: 380,
                           decoration: BoxDecoration(
                             color: Color(0xffE9FE00),
                             borderRadius: BorderRadius.circular(600),

@@ -12,7 +12,8 @@ class BulletText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start
+          ,mainAxisSize: MainAxisSize.min,
         children: [
           Text(text, style: AppTextStyles.style20w500(context)),
           SizedBox(width: 8),

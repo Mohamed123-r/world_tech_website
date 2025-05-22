@@ -84,84 +84,128 @@ class _MainViewState extends State<MainView> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height / 40,
+                top:
+                    MediaQuery.of(context).size.width < 440
+                        ? 16
+                        : MediaQuery.of(context).size.width < 1200
+                        ? 24
+                        : 44,
+
               ),
-              child: AspectRatio(
-                aspectRatio: 22 / 1,
-                child: Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width / 5,
+              child: Container(
+                height:
+                    MediaQuery.of(context).size.width < 440
+                        ? 40
+                        : MediaQuery.of(context).size.width < 1200
+                        ? 64
+                        : 80,
+
+                width:
+                    MediaQuery.of(context).size.width < 440
+                        ? 380
+                        : MediaQuery.of(context).size.width < 1200
+                        ? 680
+                        : 800,
+                decoration: BoxDecoration(
+                  color: AppColors.black,
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal:
+                        MediaQuery.of(context).size.width < 440
+                            ? 8
+                            : MediaQuery.of(context).size.width < 1200
+                            ? 50
+                            : 60,
                   ),
-                  decoration: BoxDecoration(
-                    color: AppColors.black,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 70.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children:
-                          navItems.asMap().entries.map((entry) {
-                            int idx = entry.key;
-                            String title = entry.value['title'];
-                            final bool isActive = title == activeItem;
-                            return InkWell(
-                              onTap: () {
-                                if (projectView) {
-                                  setState(() {
-                                    projectView = false;
-                                  });
-                                  Future.delayed(Duration(seconds: 2)).then((
-                                    _,
-                                  ) {
-                                    onNavItemTap(idx);
-                                  });
-                                } else {
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children:
+                        navItems.asMap().entries.map((entry) {
+                          int idx = entry.key;
+                          String title = entry.value['title'];
+                          final bool isActive = title == activeItem;
+                          return InkWell(
+                            onTap: () {
+                              if (projectView) {
+                                setState(() {
+                                  projectView = false;
+                                });
+                                Future.delayed(Duration(seconds: 2)).then((_) {
                                   onNavItemTap(idx);
-                                }
-                              },
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8,
-                                  horizontal: 16,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Spacer(),
-                                    SizedBox(height: 4),
-                                    Text(
-                                      title,
-                                      style: AppTextStyles.style14w500(
-                                        context,
-                                      ).copyWith(color: AppColors.white),
-                                    ),
-                                    const Spacer(),
-                                    AnimatedContainer(
-                                      duration: const Duration(
-                                        milliseconds: 300,
-                                      ),
-                                      height: 4,
-                                      width:
-                                          isActive
-                                              ? MediaQuery.of(
-                                                    context,
-                                                  ).size.width /
-                                                  30
-                                              : 0,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.yellow,
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                });
+                              } else {
+                                onNavItemTap(idx);
+                              }
+                            },
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 16,
                               ),
-                            );
-                          }).toList(),
-                    ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.width > 1200
+                                            ? 4
+                                            : MediaQuery.of(
+                                                  context,
+                                                ).size.width >
+                                                800
+                                            ? 3
+                                            : MediaQuery.of(
+                                                  context,
+                                                ).size.width >
+                                                480
+                                            ? 2
+                                            : 1,
+                                  ),
+                                  Text(
+                                    title,
+                                    style: AppTextStyles.style14w500(
+                                      context,
+                                    ).copyWith(color: AppColors.white),
+                                  ),
+                                  const Spacer(),
+                                  AnimatedContainer(
+                                    duration: const Duration(milliseconds: 300),
+                                    height:
+                                        MediaQuery.of(context).size.width > 1200
+                                            ? 4
+                                            : MediaQuery.of(
+                                                  context,
+                                                ).size.width >
+                                                800
+                                            ? 3
+                                            : MediaQuery.of(
+                                                  context,
+                                                ).size.width >
+                                                480
+                                            ? 2
+                                            : 1,
+                                    width:
+                                        isActive
+                                            ? MediaQuery.of(
+                                                  context,
+                                                ).size.width /
+                                                30
+                                            : 0,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.yellow,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
                   ),
                 ),
               ),

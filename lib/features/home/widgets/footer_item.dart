@@ -17,10 +17,7 @@ class FooterItem extends StatelessWidget {
       children: [
         SvgPicture.asset(image),
         SizedBox(width: 24),
-        SizedBox(
-          width: (MediaQuery.of(context).size.width - 100) / 6,
-          child: Text(text, style: AppTextStyles.style16w500(context)),
-        ),
+        Expanded(child: Text(text, style: AppTextStyles.style16w500(context))),
       ],
     );
   }

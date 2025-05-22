@@ -12,16 +12,18 @@ class CustomLogo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Image.asset(
-          Assets.imagesLogo,
-          width: MediaQuery.of(context).size.width / 20,
-        ),
-        SizedBox(width: MediaQuery.of(context).size.width / 100 - 10),
+
+
         Text(
           'Word Tech',
           style: AppTextStyles.style20w700(
             context,
           ).copyWith(color: AppColors.vilot),
+        ),
+        SizedBox(width:(MediaQuery.of(context).size.width / 50)-8),
+        Image.asset(
+          Assets.imagesLogo,
+          width: MediaQuery.of(context).size.width / 20,
         ),
       ],
     );
