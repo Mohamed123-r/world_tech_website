@@ -20,11 +20,22 @@ class _ProjectViewState extends State<ProjectView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: MediaQuery.of(context).size.height / 8),
+        SizedBox(
+          height:
+              MediaQuery.of(context).size.width > 1200
+                  ? 140
+                  : MediaQuery.of(context).size.width > 600
+                  ? 100
+                  : MediaQuery.of(context).size.width > 400
+                  ? 100
+                  : 60,
+        ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 42.0),
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width / 40,
+          ),
           child: Row(
-            spacing: 16,
+            spacing: MediaQuery.of(context).size.width / 90,
             children: [
               Expanded(
                 child: InkWell(
@@ -37,20 +48,37 @@ class _ProjectViewState extends State<ProjectView> {
                   },
                   borderRadius: BorderRadius.circular(16),
                   child: Container(
-                    height: 80,
+                    height:
+                        MediaQuery.of(context).size.width / 20 < 40
+                            ? 40
+                            : MediaQuery.of(context).size.width / 20,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       color: isMobile ? AppColors.blue : AppColors.middleGrey,
                     ),
                     child: Row(
                       children: [
-                        Image(image: AssetImage(Assets.imagesMobile)),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: Image.asset(Assets.imagesMobile),
+                        ),
                         SizedBox(width: 22),
                         Text(
                           "Mobile Applications",
-                          style: AppTextStyles.style20w700(context).copyWith(
-                            color: isMobile ? AppColors.white : AppColors.black,
-                          ),
+                          style:
+                              MediaQuery.of(context).size.width < 650
+                                  ? AppTextStyles.style14w500(context).copyWith(
+                                    color:
+                                        isMobile
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  )
+                                  : AppTextStyles.style20w700(context).copyWith(
+                                    color:
+                                        isMobile
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  ),
                         ),
                       ],
                     ),
@@ -68,21 +96,37 @@ class _ProjectViewState extends State<ProjectView> {
                   },
                   borderRadius: BorderRadius.circular(16),
                   child: Container(
-                    height: 80,
+                    height:
+                        MediaQuery.of(context).size.width / 20 < 40
+                            ? 40
+                            : MediaQuery.of(context).size.width / 20,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       color: isDesktop ? AppColors.blue : AppColors.middleGrey,
                     ),
                     child: Row(
                       children: [
-                        Image(image: AssetImage(Assets.imagesDesktop)),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: Image(image: AssetImage(Assets.imagesDesktop)),
+                        ),
                         SizedBox(width: 22),
                         Text(
                           "Desktop Applications",
-                          style: AppTextStyles.style20w700(context).copyWith(
-                            color:
-                                isDesktop ? AppColors.white : AppColors.black,
-                          ),
+                          style:
+                              MediaQuery.of(context).size.width < 650
+                                  ? AppTextStyles.style14w500(context).copyWith(
+                                    color:
+                                    isDesktop
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  )
+                                  : AppTextStyles.style20w700(context).copyWith(
+                                    color:
+                                        isDesktop
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  ),
                         ),
                       ],
                     ),
@@ -100,20 +144,37 @@ class _ProjectViewState extends State<ProjectView> {
                   },
                   borderRadius: BorderRadius.circular(16),
                   child: Container(
-                    height: 80,
+                    height:
+                        MediaQuery.of(context).size.width / 20 < 40
+                            ? 40
+                            : MediaQuery.of(context).size.width / 20,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       color: isWib ? AppColors.blue : AppColors.middleGrey,
                     ),
                     child: Row(
                       children: [
-                        Image(image: AssetImage(Assets.imagesWeb)),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: Image(image: AssetImage(Assets.imagesWeb)),
+                        ),
                         SizedBox(width: 22),
                         Text(
-                          "Mobile Applications",
-                          style: AppTextStyles.style20w700(context).copyWith(
-                            color: isWib ? AppColors.white : AppColors.black,
-                          ),
+                          "Web Sites",
+                          style:
+                              MediaQuery.of(context).size.width < 650
+                                  ? AppTextStyles.style14w500(context).copyWith(
+                                    color:
+                                    isWib
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  )
+                                  : AppTextStyles.style20w700(context).copyWith(
+                                    color:
+                                        isWib
+                                            ? AppColors.white
+                                            : AppColors.black,
+                                  ),
                         ),
                       ],
                     ),

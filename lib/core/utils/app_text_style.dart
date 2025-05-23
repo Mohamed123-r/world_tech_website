@@ -73,6 +73,13 @@ abstract class AppTextStyles {
       color: AppColors.black,
     );
   }
+  static TextStyle style10w500(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 10),
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    );
+  }
 }
 
 double getResponsiveScaleFactor(
