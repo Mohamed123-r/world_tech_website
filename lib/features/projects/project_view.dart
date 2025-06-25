@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:world_tech_website/core/utils/app_colors.dart';
 import 'package:world_tech_website/core/utils/app_text_style.dart';
+import 'package:world_tech_website/features/projects/project_details_view.dart';
 
 import '../../generated/assets.dart';
 import '../home/widgets/footer_section.dart';
@@ -237,51 +238,61 @@ class _ProjectViewState extends State<ProjectView> {
                   padding: const EdgeInsets.all(42),
                   itemCount: 13,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.whiteGrey,
-                        borderRadius: BorderRadius.circular(23),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(32.0),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  radius:
-                                      MediaQuery.of(context).size.width <= 600
-                                          ? 16
-                                          : MediaQuery.of(context).size.width /
-                                              60,
-                                  backgroundColor: Color(0xffE9FE00),
-                                  child: Icon(
-                                    Icons.north_east,
-                                    size:
-                                        MediaQuery.of(context).size.width / 60,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProjectDetailsView(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteGrey,
+                          borderRadius: BorderRadius.circular(23),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(32.0),
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius:
+                                        MediaQuery.of(context).size.width <= 600
+                                            ? 16
+                                            : MediaQuery.of(context).size.width /
+                                                60,
+                                    backgroundColor: Color(0xffE9FE00),
+                                    child: Icon(
+                                      Icons.north_east,
+                                      size:
+                                          MediaQuery.of(context).size.width / 60,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width < 400
-                                          ? 8
-                                          : 22,
-                                ),
-                                Text(
-                                  "Trend El Agaar Application",
-                                  style: AppTextStyles.style26w500(context),
-                                ),
-                              ],
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width < 400
+                                            ? 8
+                                            : 22,
+                                  ),
+                                  Text(
+                                    "Trend El Agaar Application",
+                                    style: AppTextStyles.style26w500(context),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: Image.asset(
-                              isMobile
-                                  ? Assets.imagesMobilTest
-                                  : Assets.imagesWebTest,
+                            Expanded(
+                              child: Image.asset(
+                                isMobile
+                                    ? Assets.imagesMobilTest
+                                    : Assets.imagesWebTest,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   },

@@ -10,8 +10,11 @@ class Assets {
   static const String fontsTajawalLight = 'assets/fonts/Tajawal-Light.ttf';
   static const String fontsTajawalMedium = 'assets/fonts/Tajawal-Medium.ttf';
   static const String fontsTajawalRegular = 'assets/fonts/Tajawal-Regular.ttf';
+  static const String imagesAndroidButton = 'assets/images/androidButton.png';
+  static const String imagesApplicationFeatures = 'assets/images/ApplicationFeatures.png';
   static const String imagesArrowsClockwise = 'assets/images/ArrowsClockwise.svg';
   static const String imagesBackgroundImageTest = 'assets/images/backgroundImageTest.png';
+  static const String imagesBackgroundProjectDetails = 'assets/images/backgroundProjectDetails.png';
   static const String imagesContactUs = 'assets/images/contactUs.png';
   static const String imagesDesktop = 'assets/images/desktop.png';
   static const String imagesFacebook = 'assets/images/facebook.png';
@@ -19,12 +22,14 @@ class Assets {
   static const String imagesHeroSectionBannerTest = 'assets/images/HeroSectionBannerTest.png';
   static const String imagesImageTest = 'assets/images/imageTest.png';
   static const String imagesInstgram = 'assets/images/instgram.png';
+  static const String imagesIosButton = 'assets/images/IosButton.png';
   static const String imagesLock = 'assets/images/Lock.svg';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesMobilTest = 'assets/images/mobilTest.png';
   static const String imagesMobile = 'assets/images/Mobile.png';
   static const String imagesProgectsTitleimage = 'assets/images/progectsTitleimage.png';
   static const String imagesProgetTest = 'assets/images/progetTest.png';
+  static const String imagesProjectDitails = 'assets/images/projectDitails.png';
   static const String imagesShield = 'assets/images/Shield.svg';
   static const String imagesTeamImage1 = 'assets/images/teamImage1.png';
   static const String imagesTeamItem2 = 'assets/images/teamItem2.png';
