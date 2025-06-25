@@ -127,7 +127,7 @@ class _HomeViewState extends State<HomeView> {
                                  MediaQuery.of(context).size.width > 1200
                                       ? 8
                                       : MediaQuery.of(context).size.width > 600
-                                          ? 32 : 42
+                                          ? 32 : 66
                                 ),
                                 child: HeroSection(),
                               ),

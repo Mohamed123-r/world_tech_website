@@ -25,10 +25,15 @@ class FooterSection extends StatelessWidget {
               Image.asset(
                 Assets.imagesFacebook,
                 width:
-                    MediaQuery.of(context).size.width < 1200
+                MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
+                    MediaQuery.of(context).size.width <1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
-                height:
+                height:  MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
                     MediaQuery.of(context).size.width < 1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
@@ -46,11 +51,15 @@ class FooterSection extends StatelessWidget {
               ),
               Image.asset(
                 Assets.imagesInstgram,
-                width:
+                width:  MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
                     MediaQuery.of(context).size.width < 1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
-                height:
+                height:  MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
                     MediaQuery.of(context).size.width < 1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
@@ -69,24 +78,54 @@ class FooterSection extends StatelessWidget {
 
               Image.asset(
                 Assets.imagesWhatsapp,
-                width:
+                width:  MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
                     MediaQuery.of(context).size.width < 1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
-                height:
+                height:  MediaQuery.of(context).size.width <400
+                    ? 20
+                    :
                     MediaQuery.of(context).size.width < 1200
                         ? MediaQuery.of(context).size.width / 40
                         : 28,
               ),
               Spacer(),
-              CustomLogo(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Word Tech',
+                    style: AppTextStyles.style20w700(
+                      context,
+                    ).copyWith(color: AppColors.vilot),
+                  ),
+                  SizedBox(width:   MediaQuery.of(context).size.width <400
+                      ? 4
+                      :(MediaQuery.of(context).size.width / 50) - 8),
+                  Image.asset(
+                    Assets.imagesLogo,
+                    width:  MediaQuery.of(context).size.width <400
+                        ? 50
+                        :
+                        MediaQuery.of(context).size.width / 20,
+                  ),
+                ],
+              ),
             ],
           ),
           Divider(color: AppColors.grey, thickness: 1),
           SizedBox(height: 24),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width < 1200 ? 24 : 70.0,
+              horizontal:
+                  MediaQuery.of(context).size.width < 400
+                      ? 0
+                      : MediaQuery.of(context).size.width < 1200
+                      ? 24
+                      : 70.0,
             ),
             child:
                 MediaQuery.of(context).size.width < 1200

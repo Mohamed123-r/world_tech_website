@@ -37,7 +37,6 @@ class ServiceSection extends StatelessWidget {
           MediaQuery.of(context).size.width < 600
               ? Column(
                 children: [
-
                   Container(
                     padding: EdgeInsetsDirectional.only(
                       start: 32,
@@ -81,12 +80,12 @@ class ServiceSection extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),    SizedBox(height: 24),
+                  ),
+                  SizedBox(height: 24),
                   Image.asset(
                     Assets.imagesUpBannerTest,
                     width: MediaQuery.of(context).size.width,
                   ),
-
                 ],
               )
               : Row(
@@ -121,7 +120,7 @@ class ServiceSection extends StatelessWidget {
                             "مواقع الويب بوابتك إلى العالم الرقمي",
                             style: AppTextStyles.style20w500(context),
                           ),
-                          SizedBox(height: 48),
+                          SizedBox(height: 32),
                           Text(
                             "في World Tech، نصنع مواقع ويب احترافية وجذابة تُعبر عن هوية علامتك التجارية باحترافية. سواء كنت بحاجة إلى موقع شخصي، ",
                             maxLines: 7,
@@ -173,7 +172,7 @@ class ServiceSection extends StatelessWidget {
                           "تطبيقات الهاتف: ابتكار في جيب عملائك",
                           style: AppTextStyles.style20w500(context),
                         ),
-                        SizedBox(height: 48),
+                        SizedBox(height: 32),
                         Text(
                           "نطور تطبيقات هاتف ذكية ومبتكرة تلبي احتياجات المستخدمين على نظامي Android و iOS.",
 
@@ -220,13 +219,12 @@ class ServiceSection extends StatelessWidget {
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-
                         children: [
                           Text(
                             "تطبيقات الهاتف: ابتكار في جيب عملائك",
                             style: AppTextStyles.style20w500(context),
                           ),
-                          SizedBox(height: 48),
+                          SizedBox(height: 32),
                           Text(
                             "نطور تطبيقات هاتف ذكية ومبتكرة تلبي احتياجات المستخدمين على نظامي Android و iOS.",
 

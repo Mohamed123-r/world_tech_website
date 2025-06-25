@@ -3,6 +3,7 @@ import 'package:world_tech_website/core/utils/app_colors.dart';
 import 'package:world_tech_website/core/utils/app_text_style.dart';
 
 import '../../generated/assets.dart';
+import '../home/widgets/footer_section.dart';
 
 class ProjectView extends StatefulWidget {
   const ProjectView({super.key});
@@ -62,9 +63,17 @@ class _ProjectViewState extends State<ProjectView> {
                           visible: MediaQuery.of(context).size.width > 600,
                           child: Image.asset(Assets.imagesMobile),
                         ),
-                        SizedBox(width: 22),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: SizedBox(width: 22),
+                        ),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
+                        ),
                         Text(
                           "Mobile Applications",
+
                           style:
                               MediaQuery.of(context).size.width < 650
                                   ? AppTextStyles.style14w500(context).copyWith(
@@ -79,6 +88,10 @@ class _ProjectViewState extends State<ProjectView> {
                                             ? AppColors.white
                                             : AppColors.black,
                                   ),
+                        ),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
                         ),
                       ],
                     ),
@@ -110,14 +123,22 @@ class _ProjectViewState extends State<ProjectView> {
                           visible: MediaQuery.of(context).size.width > 600,
                           child: Image(image: AssetImage(Assets.imagesDesktop)),
                         ),
-                        SizedBox(width: 22),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: SizedBox(width: 22),
+                        ),
+
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
+                        ),
                         Text(
                           "Desktop Applications",
                           style:
                               MediaQuery.of(context).size.width < 650
                                   ? AppTextStyles.style14w500(context).copyWith(
                                     color:
-                                    isDesktop
+                                        isDesktop
                                             ? AppColors.white
                                             : AppColors.black,
                                   )
@@ -127,6 +148,10 @@ class _ProjectViewState extends State<ProjectView> {
                                             ? AppColors.white
                                             : AppColors.black,
                                   ),
+                        ),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
                         ),
                       ],
                     ),
@@ -158,14 +183,21 @@ class _ProjectViewState extends State<ProjectView> {
                           visible: MediaQuery.of(context).size.width > 600,
                           child: Image(image: AssetImage(Assets.imagesWeb)),
                         ),
-                        SizedBox(width: 22),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width > 600,
+                          child: SizedBox(width: 22),
+                        ),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
+                        ),
                         Text(
                           "Web Sites",
                           style:
                               MediaQuery.of(context).size.width < 650
                                   ? AppTextStyles.style14w500(context).copyWith(
                                     color:
-                                    isWib
+                                        isWib
                                             ? AppColors.white
                                             : AppColors.black,
                                   )
@@ -176,6 +208,10 @@ class _ProjectViewState extends State<ProjectView> {
                                             : AppColors.black,
                                   ),
                         ),
+                        Visibility(
+                          visible: MediaQuery.of(context).size.width < 600,
+                          child: Spacer(),
+                        ),
                       ],
                     ),
                   ),
@@ -185,47 +221,74 @@ class _ProjectViewState extends State<ProjectView> {
           ),
         ),
         Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 32,
-              mainAxisSpacing: 32,
-              childAspectRatio: 1.16,
-            ),
-            padding: const EdgeInsets.all(42),
-            itemCount: 13,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: AppColors.whiteGrey,
-                  borderRadius: BorderRadius.circular(23),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: Row(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount:
+                        MediaQuery.of(context).size.width < 600 ? 1 : 2,
+                    crossAxisSpacing: 32,
+                    mainAxisSpacing: 32,
+                    childAspectRatio: 1.16,
+                  ),
+                  padding: const EdgeInsets.all(42),
+                  itemCount: 13,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteGrey,
+                        borderRadius: BorderRadius.circular(23),
+                      ),
+                      child: Column(
                         children: [
-                          CircleAvatar(
-                            radius: 22,
-                            backgroundColor: Color(0xffE9FE00),
-                            child: Icon(Icons.north_east),
+                          Padding(
+                            padding: const EdgeInsets.all(32.0),
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  radius:
+                                      MediaQuery.of(context).size.width <= 600
+                                          ? 16
+                                          : MediaQuery.of(context).size.width /
+                                              60,
+                                  backgroundColor: Color(0xffE9FE00),
+                                  child: Icon(
+                                    Icons.north_east,
+                                    size:
+                                        MediaQuery.of(context).size.width / 60,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width < 400
+                                          ? 8
+                                          : 22,
+                                ),
+                                Text(
+                                  "Trend El Agaar Application",
+                                  style: AppTextStyles.style26w500(context),
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(width: 22),
-                          Text(
-                            "Trend El Agaar Application",
-                            style: AppTextStyles.style32w500(context),
+                          Expanded(
+                            child: Image.asset(
+                              isMobile
+                                  ? Assets.imagesMobilTest
+                                  : Assets.imagesWebTest,
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                    Image.asset(
-                      isMobile ? Assets.imagesMobilTest : Assets.imagesWebTest,
-                    ),
-                  ],
+                    );
+                  },
                 ),
-              );
-            },
+                FooterSection(),
+              ],
+            ),
           ),
         ),
       ],

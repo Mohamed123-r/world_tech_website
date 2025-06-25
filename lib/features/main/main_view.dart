@@ -86,11 +86,10 @@ class _MainViewState extends State<MainView> {
               padding: EdgeInsets.only(
                 top:
                     MediaQuery.of(context).size.width < 440
-                        ? 16
+                        ? 44
                         : MediaQuery.of(context).size.width < 1200
                         ? 24
                         : 44,
-
               ),
               child: Container(
                 height:
@@ -116,7 +115,7 @@ class _MainViewState extends State<MainView> {
                         MediaQuery.of(context).size.width < 440
                             ? 8
                             : MediaQuery.of(context).size.width < 1200
-                            ? 50
+                            ? 20
                             : 60,
                   ),
                   child: Row(
